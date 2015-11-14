@@ -83,8 +83,9 @@ movl (%esi,%edi,1), %eax
 \answer
 {Ile razy zawartosc rejestru \%ah zostanie zapisana do pamieci poprzez uzycie instrukcji REP STOSB, jezeli przed jej wykonaniem zawartosc rejestru \%ecx była równa x?}
 {1}
-{?}
-{?}
+{F}
+{hmm czyżby chodzilo o zawartość al?, jeśli nie to zero razy bo STOSB wpisze AL nie AH, a jesli mial na mysli AL to x razy}
+{REP powtarza instrukcje x razy, w tym wypadku wezmie pod uwage rejestr CL jako licznik}
 %-----------------%-----------------
 \answer
 {
@@ -93,9 +94,11 @@ movl (%esi,%edi,1), %eax
 	NEG \%eax
 }
 {0x00000000}
-{?}
-{?}
-{?}
+{F}
+{0x00010000}
+{
+	\lstinputlisting{13/ideone_5Uwlpn.s}
+}
 %-----------------%-----------------
 \answer
 {Jaka bedzie zawartosc rejestru \%al po sekwencji rozkazów? \\
@@ -104,9 +107,11 @@ movl (%esi,%edi,1), %eax
 	ADCB \%ah ,\%al\\
 	}
 {nieokreslona}
-{?}
-{?}
-{?}
+{F}
+{0xFFFE}
+{
+	\lstinputlisting{13/ideone_13223.s}
+}
 %-----------------%-----------------
 \answer
 {Na jakim rodzaju schematu pokazane sa połaczenia elektryczne w układzie opartym na mikrokontrolerze?}
