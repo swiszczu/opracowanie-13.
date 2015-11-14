@@ -1,0 +1,153 @@
+\setcounter{chapter}{12}
+\chapter{Programowanie miktrokontrolerów i mikroprocesorów}
+\PartialToc
+%\startcontents[chapters]
+%\printcontents[chapters]{}{1}{\section*{\contentsname}}
+\setcounter{section}{215}
+
+%-----------------
+\answer
+{Ile rejestrów 8-bitowych dostępnych dla programisty znajduje się w procesorach z rodziny x86?}
+{6}
+{F}
+{8}
+{
+	Innej poprawnej nie ma. Rysunek poniżej
+	\begin{center}
+		\includegraphics[width=6cm]{13/img/x86-registers.png}
+		\captionof{figure}{Struktura rejestrów procka x86}
+	\end{center}
+}
+%-----------------
+\answer
+{Jaki tryb adresowania wykorzystuje rozkaz ADDL (\%ebx),\%eax?\\}
+{bezposredni}
+{F}
+{pośredni}
+{
+Główny podział:
+\begin{itemize}
+	\item bezpośredni (ang. direct)
+	\item pośredni (ang. indirect)
+\end{itemize}
+Bardziej szczegółowo:
+\begin{itemize}
+	\item rejestrowy (ang. register)
+	\item rejestrowy pośredni (ang. register indirect)
+	\item z przesunieciem (indeksowanie) (ang. displacement (indexed))
+	\item stosowy (ang. stack)
+\end{itemize}
+}
+\begin{lstlisting}
+bezposredni
+movl 0x01, %eax
+posredni
+movl (%ebx), %eax
+movl (%esi,%edi,1), %eax
+
+\end{lstlisting}
+%-----------------
+\answer
+{Jaka instrukcja jest równowazna w działaniu do instrukcji SHL \$1,\%eax?}
+{SAL \$1,\%eax}
+{?}
+{?}
+{?}
+%-----------------%-----------------
+\answer
+{Która z ponizszych instrukcji dotyczy operacji na blokach danych?}
+{STC}
+{?}
+{?}
+{?}
+%-----------------%-----------------
+\answer
+{Według jakiej reguły moze być dokonywana konwersja do liczby całkowitej w jednostce FPU (Floating Point Unit)?
+}
+{round down}
+{T}
+{\\
+	00 - round to nearest\\
+	01 - round down\\
+	10 - round up\\
+	11 - round toward zero\\}
+{Powyżej możliwe ustawienia kontroli zaokrągleń w FPU. \\Źródło wykłady FTP wykłd 9. s16}
+%-----------------%-----------------
+\answer
+{Ile razy wykona sie pętla zbudowana w oparciu o instrukcję LOOP, jesli przed jej rozpoczeciem zawartosc rejestru \%ecx była równa 0? }
+{$2^{32}$}
+{T}
+{Chyba poprawne?}
+{rozkaz loop to petla for(\%ecx - -;\%ecx!=0;)\{\%ip+=disp\}. \\Źródło wykłady FTP}
+%-----------------%-----------------
+\answer
+{Ile razy zawartosc rejestru \%ah zostanie zapisana do pamieci poprzez uzycie instrukcji REP STOSB, jezeli przed jej wykonaniem zawartosc rejestru \%ecx była równa x?}
+{1}
+{?}
+{?}
+%-----------------%-----------------
+\answer
+{
+	Jaka bedzie zawartosc rejestru \%eax po sekwencji rozkazów?\\
+	MOVL \$0xFFFF0000 ,\%eax\\
+	NEG \%eax
+}
+{0x00000000}
+{?}
+{?}
+{?}
+%-----------------%-----------------
+\answer
+{Jaka bedzie zawartosc rejestru \%al po sekwencji rozkazów? \\
+	MOVW \$0xFF00 ,\%ax\\
+	ADCB \%ah ,\%al\\
+	ADCB \%ah ,\%al\\
+	}
+{nieokreslona}
+{?}
+{?}
+{?}
+%-----------------%-----------------
+\answer
+{Na jakim rodzaju schematu pokazane sa połaczenia elektryczne w układzie opartym na mikrokontrolerze?}
+{ideowym}
+{?}
+{?}
+{}
+%-----------------%-----------------
+\answer
+{W jakim rodzaju pamieci mikrokontrolera uzytkownik zwykle zapisuje kod programu?}
+{DRAM}
+{?}
+{?}
+{}
+%-----------------%-----------------
+\answer
+{Jakie elementy wystepujace w mikrokontrolerach nie wystepuja w mikroprocesorach?}
+{ADC}
+{T}
+{TODO....}
+{}
+%-----------------%-----------------
+\answer
+{Czy jezyk maszynowy jest tozsamy z jezykiem asemblera? }
+{nie}
+{T}
+{}
+{Język ASM to tekstowe odpowiedniki wewnętrznych rozkazów procesora (tzw. mnemoniki), kod maszynowy to po prostu liczby}
+%-----------------%-----------------
+\answer
+{Jakie narzedzie słuzy do zamiany kodu napisanego w jezyku asemblera na kod maszynowy? }
+{assembler}
+{T}
+{}
+{}
+%-----------------%-----------------
+\answer
+{Które z narzedzi nie umozliwia stworzenia kodu na mikrokontroler z rodziny AVR?}
+{Microsoft Visual Studio
+}
+{F}
+{Wszystkie narzędzia które nie wspierają Make, czyli da się np. w Eclipse, dedykowane do AVR jest AVR Studio}
+{http://www.instructables.com/id/Use-Visual-Studio-2010-to-Compile-AVR-Hex-Files/}
+%-----------------%-----------------

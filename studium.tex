@@ -1,0 +1,101 @@
+\documentclass[11pt]{aghdpl}
+\usepackage[polish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{capt-of}
+\usepackage{multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{array}
+\usepackage{url}
+\usepackage{varwidth}
+\usepackage{titletoc}
+\usepackage{hyperref}
+\usepackage{framed}
+\usepackage{etoolbox}
+\usepackage{titlesec}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\definecolor{Gray}{gray}{0.75}
+\definecolor{LightGray}{gray}{0.90}
+
+\author{Informatyka 2012}
+\shortauthor{Informatyka 2012}
+
+\titlePL{Opracowanie pytań}
+\titleEN{}
+
+\shorttitlePL{Opracowanie pytań}
+\shorttitleEN{}
+
+\thesistype{Egzamin inżynierski 2015}
+
+\supervisor{}
+
+\degreeprogramme{}
+
+\subject{} 
+
+\date{2015}
+
+\department{}
+
+\faculty{}
+
+\titleformat*{\section}{\Large\bfseries}
+
+\newcommand{\PartialToc}{
+\startcontents[chapters]\vspace{-1cm}\vbox{\bf\large Spis treści}
+\printcontents[chapters]{}{1}{}
+\newpage
+}
+
+\newcommand{\answer}[5]{
+\section{#1}
+
+\noindent
+{\textbf{Przykładowa odpowiedź:}}
+#2
+\textbf{\ifstrequal{#3}{T}{PRAWDA}{
+    \ifstrequal{#3}{F}{FAŁSZ}{DIY}
+}}
+
+\vspace{0.4cm}
+\noindent
+\textbf{Odpowiedź:}
+#4
+\ifstrempty{#5}{}{
+    \vspace{0.4cm}
+    \noindent
+    \textbf{Wyjaśnienie:} #5
+}
+}
+
+
+%---------------------------------------------------------------------------
+
+%\includeonly{19/chapter.tex}
+
+\setcounter{tocdepth}{0}
+\begin{document}
+
+\titlepages
+\tableofcontents
+\clearpage
+\setcounter{tocdepth}{1}
+
+\input{13/chapter.tex}
+
+
+\end{document}
