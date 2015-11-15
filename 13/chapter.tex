@@ -50,16 +50,29 @@ movl (%esi,%edi,1), %eax
 \answer
 {Jaka instrukcja jest równowazna w działaniu do instrukcji SHL \$1,\%eax?}
 {SAL \$1,\%eax}
-{?}
-{?}
-{?}
+{T}
+{}
+{\\\textbf{SAL} - przesunięcie arytmetyczne w lewo\\
+\textbf{SHL} - przesunięcie bitowe w lewo.\\
+Przesuwanie w lewo czyli w stronę flagi CF. Przy ostatnim przesunięciu flaga zostanie wyzerowana więc nie ma znaczenia dla wyniku czy stosujemy arytmetyczne czy bitowe przesuniecie.}
+\begin{lstlisting}
+MOVW $0xFF00, %ax   #=> 0xff00 65280   # 1 1111 1111 0000 0000
+SHL   $1, %eax      #=> 0x1fe00 130560 # 1 1111 1110 0000 0000
+##
+MOVW $0xFF00, %ax   #=> 0xff00 65280   # 1 1111 1111 0000 0000
+SAL   $1, %eax      #=> 0x1fe00 130560 # 1 1111 1110 0000 0000
+
+\end{lstlisting}
 %-----------------%-----------------
 \answer
 {Która z ponizszych instrukcji dotyczy operacji na blokach danych?}
 {STC}
-{?}
-{?}
-{?}
+{F}
+{np. \textbf{MOV, PUSH, POP, XCHG, XLAT}}
+{\begin{itemize}
+\item[] \textbf{STC} (STC/CLC - set carry / clear carry. Do flagi CF wstaw 1 lub 0, odpowiednio). \\FLAGI: \textbf{CF, OF, SF, ZF, IF, PF, DF} służą przede wszystkim do sterownia znacznikami np. do badania wyniku ostatniego przekształcenia (przepełnienie / wynik 0).
+\end{itemize}}
+%More - wykłądy Bublińskiego, Język asembler dla każdego Bogdan Drozdowski
 %-----------------%-----------------
 \answer
 {Według jakiej reguły moze być dokonywana konwersja do liczby całkowitej w jednostce FPU (Floating Point Unit)?
