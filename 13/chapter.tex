@@ -116,23 +116,31 @@ movl (%esi,%edi,1), %eax
 \answer
 {Na jakim rodzaju schematu pokazane sa połaczenia elektryczne w układzie opartym na mikrokontrolerze?}
 {ideowym}
-{?}
+{T}
 {?}
 {}
 %-----------------%-----------------
 \answer
 {W jakim rodzaju pamieci mikrokontrolera uzytkownik zwykle zapisuje kod programu?}
 {DRAM}
-{?}
-{?}
-{}
+{F}
+{
+	\begin{itemize}
+		\item EEPROM, Flash - zwykle
+		\item EPROM, MRAM lub FRAM
+	\end{itemize}
+}
+\\{Powyżej wymienione pamięci są pamięciami nieulotnymi, i tam umieszczamy kod programu.\\DRAM i SRAM są pamięciami ulotnymi, czyli po wyłączeniu zasilania kod przepada.}
 %-----------------%-----------------
 \answer
 {Jakie elementy wystepujace w mikrokontrolerach nie wystepuja w mikroprocesorach?}
 {ADC}
 {T}
-{TODO....}
 {}
+{\begin{itemize}
+\item Mikroprocesor to tylko:\\- \textbf{ALU} (Arithmetic Logic Unit) - jednostka licząca\\ - \textbf{CU} (Control Unit) - układ sterujący pracą\\ - \textbf{Rejestry}: PC, IR, SP - potrzebne przy wykonywaniu operacji obliczeniowych\\
+\item Mikrokontroler to układ w pełni autonomiczny, potrzebujący tylko zasilanie do pracy. Posiada w sobie procesor oraz peryferia np.:\\- pamięć danych do przechowywania kodu programu i zmiennych,\\- porty wejścia-wyjscia np: \textbf{ADC} (Analog-to-digital converter), \textbf{DAC},\\- układy czasowo-licznikowe, \\- kontrolery przerwań,\\- kontrolery transmisji\textbf{ UART, SPI, I2C, USB, CAN, 1-Wire} etc.,\\- zegar czasu rzeczywistego \textbf{RTC},\\- watchdog.
+\end{itemize}}
 %-----------------%-----------------
 \answer
 {Czy jezyk maszynowy jest tozsamy z jezykiem asemblera? }
